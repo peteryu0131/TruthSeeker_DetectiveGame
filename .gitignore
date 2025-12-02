@@ -1,0 +1,43 @@
+# Unity build files
+*.exe
+*.dll
+MonoBleedingEdge/
+truth_seeker_Data/
+truth_seeker_BurstDebugInformation_DoNotShip/
+UnityCrashHandler*.exe
+UnityPlayer.dll
+
+# Node modules
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+build/
+*.log
+
+# IDE files
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Cache
+.cache/
+*.cache
+
+# Lock files (optional - you may want to commit these)
+# package-lock.json
+# yarn.lock
+

@@ -1,0 +1,2037 @@
+{
+  "stories": [
+    {
+      "id": "story_museum_kidnapping_v2",
+      "title": "Museum Kidnapping",
+      "tags": [
+        "story:museum_kidnapping",
+        "difficulty:medium",
+        "theme:abduction"
+      ],
+      "variables": {
+        "locationMain": [
+          {
+            "id": "loc_museum",
+            "label": "City Museum",
+            "tags": ["location:indoor"]
+          },
+          {
+            "id": "loc_gallery",
+            "label": "North River Gallery",
+            "tags": ["location:indoor", "theme:art"]
+          },
+          {
+            "id": "loc_cultural",
+            "label": "Heritage Cultural Center",
+            "tags": ["location:indoor", "theme:heritage"]
+          }
+        ],
+        "roomEntrance": [
+          {
+            "id": "room_hall_A",
+            "label": "Entrance Hall (A)",
+            "tags": ["room:hall"]
+          },
+          {
+            "id": "room_lobby",
+            "label": "Atrium Lobby",
+            "tags": ["room:lobby"]
+          }
+        ],
+        "roomStorage": [
+          {
+            "id": "room_storage_B",
+            "label": "Storage Room (B)",
+            "tags": ["room:storage"]
+          },
+          {
+            "id": "room_loading",
+            "label": "Loading Dock Corridor",
+            "tags": ["room:service"]
+          }
+        ],
+        "blanketInStroller": [
+          {
+            "id": "blanket_purple",
+            "color": "purple",
+            "tags": ["evidence:color", "found:stroller"]
+          },
+          {
+            "id": "blanket_yellow",
+            "color": "yellow",
+            "tags": ["evidence:color", "found:stroller"]
+          }
+        ],
+        "blanketNearExit": [
+          {
+            "id": "blanket_blue",
+            "color": "blue",
+            "tags": ["evidence:color", "found:exit"]
+          },
+          {
+            "id": "blanket_green",
+            "color": "green",
+            "tags": ["evidence:color", "found:exit"]
+          }
+        ],
+        "stroller": [
+          {
+            "id": "stroller_custom",
+            "label": "custom wooden stroller",
+            "tags": ["container:hidden_compartment"]
+          },
+          {
+            "id": "stroller_carbon",
+            "label": "carbon frame stroller",
+            "tags": ["container:magnetic_latch"]
+          }
+        ],
+        "victim": [
+          {
+            "id": "victim_baby",
+            "name": "Infant",
+            "role": "Baby",
+            "tags": ["victim:child", "status:missing"]
+          },
+          {
+            "id": "victim_toddler",
+            "name": "Toddler",
+            "role": "Two year old",
+            "tags": ["victim:child", "status:missing"]
+          }
+        ],
+        "timeWindow": [
+          {
+            "id": "window_noise",
+            "start": "14:25",
+            "end": "14:35",
+            "tags": ["time:afternoon", "window:incident"]
+          },
+          {
+            "id": "window_evening",
+            "start": "16:10",
+            "end": "16:22",
+            "tags": ["time:evening", "window:incident"]
+          }
+        ],
+        "suspects": {
+          "A": [
+            {
+              "id": "A",
+              "name": "Victor",
+              "gender": "Male",
+              "occupation": "Engineer",
+              "appearance": "Blue shirt; khaki pants; pushing stroller; practical demeanor",
+              "clothing": "Blue shirt; khaki pants; pushing stroller",
+              "role": "Father of the baby",
+              "attrs": ["family", "remarried", "stroller_builder", "hidden_compartment"],
+              "tags": ["suspect:family", "suspect:possible", "motive:biological_doubt"]
+            },
+            {
+              "id": "A_alt",
+              "name": "Daniel",
+              "gender": "Male",
+              "occupation": "Architect",
+              "appearance": "Grey blazer; messenger bag; professional appearance",
+              "clothing": "Grey blazer; messenger bag",
+              "role": "Stepfather",
+              "attrs": ["family", "designs_structures", "custody_concerns"],
+              "tags": ["suspect:family", "suspect:possible", "motive:control"]
+            },
+            {
+              "id": "A_alt2",
+              "name": "Robert",
+              "gender": "Male",
+              "occupation": "Mechanical Engineer",
+              "appearance": "Casual work clothes; tool belt; focused expression",
+              "clothing": "Work shirt; jeans; tool belt",
+              "role": "Father of the baby",
+              "attrs": ["family", "remarried", "stroller_builder", "hidden_compartment"],
+              "tags": ["suspect:family", "suspect:possible", "motive:biological_doubt"]
+            }
+          ],
+          "B": [
+            {
+              "id": "B",
+              "name": "Grace",
+              "gender": "Female",
+              "occupation": "Artist",
+              "appearance": "Purple dress; pearl earrings; artistic style",
+              "clothing": "Purple dress; pearl earrings",
+              "role": "Mother of the baby",
+              "attrs": ["family", "called_police"],
+              "tags": ["suspect:family", "suspect:low"]
+            },
+            {
+              "id": "B_alt",
+              "name": "Evelyn",
+              "gender": "Female",
+              "occupation": "Museum curator",
+              "appearance": "Satin blouse; ID badge; professional look",
+              "clothing": "Satin blouse; ID badge",
+              "role": "Caretaker",
+              "attrs": ["family", "filed_missing_report"],
+              "tags": ["suspect:family", "suspect:low"]
+            },
+            {
+              "id": "B_alt2",
+              "name": "Sophia",
+              "gender": "Female",
+              "occupation": "Art Teacher",
+              "appearance": "Colorful scarf; comfortable dress; caring expression",
+              "clothing": "Colorful scarf; comfortable dress",
+              "role": "Mother of the baby",
+              "attrs": ["family", "called_police"],
+              "tags": ["suspect:family", "suspect:low"]
+            }
+          ],
+          "C": [
+            {
+              "id": "C",
+              "name": "Marcus",
+              "gender": "Male",
+              "occupation": "Obstetrician",
+              "appearance": "White shirt; glasses; small medical bag; calm demeanor",
+              "clothing": "White shirt; glasses; small medical bag",
+              "role": "Family friend; obstetrician",
+              "attrs": ["helper", "doctor"],
+              "tags": ["suspect:neutral", "suspect:low"]
+            },
+            {
+              "id": "C_alt",
+              "name": "Landon",
+              "gender": "Male",
+              "occupation": "Paramedic",
+              "appearance": "Navy jacket; trauma kit; alert posture",
+              "clothing": "Navy jacket; trauma kit",
+              "role": "Family friend",
+              "attrs": ["helper", "on_call"],
+              "tags": ["suspect:neutral", "suspect:low"]
+            },
+            {
+              "id": "C_alt2",
+              "name": "James",
+              "gender": "Male",
+              "occupation": "Pediatrician",
+              "appearance": "Medical scrubs; stethoscope; friendly expression",
+              "clothing": "Medical scrubs; stethoscope",
+              "role": "Family friend; pediatrician",
+              "attrs": ["helper", "doctor"],
+              "tags": ["suspect:neutral", "suspect:low"]
+            }
+          ],
+          "D": [
+            {
+              "id": "D",
+              "name": "Lydia",
+              "gender": "Female",
+              "occupation": "Former nurse (unemployed)",
+              "appearance": "Loose beige coat concealing belly; nervous gestures; distant eyes",
+              "clothing": "Loose beige coat concealing belly",
+              "role": "Close family friend",
+              "attrs": ["fake_pregnancy", "prior_miscarriages", "anxiety"],
+              "tags": ["suspect:main", "motive:desire_child", "method:fake_belly"]
+            },
+            {
+              "id": "D_alt",
+              "name": "Helena",
+              "gender": "Female",
+              "occupation": "Wellness blogger",
+              "appearance": "Flowing shawl; oversized tote; evasive behavior",
+              "clothing": "Flowing shawl; oversized tote",
+              "role": "Family acquaintance",
+              "attrs": ["fake_pregnancy", "fertility_treatments", "obsessive"],
+              "tags": ["suspect:main", "motive:yearning", "method:concealment"]
+            },
+            {
+              "id": "D_alt2",
+              "name": "Maya",
+              "gender": "Female",
+              "occupation": "Former Caregiver",
+              "appearance": "Oversized sweater; baggy clothing; anxious movements",
+              "clothing": "Oversized sweater; baggy clothing",
+              "role": "Close family friend",
+              "attrs": ["fake_pregnancy", "prior_miscarriages", "anxiety"],
+              "tags": ["suspect:main", "motive:desire_child", "method:fake_belly"]
+            }
+          ]
+        },
+        "supportActor": [
+          {
+            "id": "X",
+            "name": "Liander",
+            "gender": "Male",
+            "occupation": "Unemployed",
+            "clothing": "Dirty jacket; smell of alcohol",
+            "role": "Drunk disruptor",
+            "attrs": ["violent", "caused_chaos"],
+            "tags": ["support:distraction", "not_suspect"]
+          },
+          {
+            "id": "X_alt",
+            "name": "Porter",
+            "gender": "Male",
+            "occupation": "Street performer",
+            "clothing": "Colorful scarf; juggling pins",
+            "role": "Busker",
+            "attrs": ["loud", "draws_crowds"],
+            "tags": ["support:distraction", "not_suspect"]
+          }
+        ],
+        "decoyVisitor": [
+          {
+            "id": "Y",
+            "name": "Woman in Black",
+            "gender": "Female",
+            "occupation": "Unknown",
+            "clothing": "Black dress; dark hat; sunglasses",
+            "role": "Visitor at museum",
+            "attrs": ["lost_child_before", "mentally_unstable"],
+            "tags": ["suspect:decoy", "motive:trauma"]
+          },
+          {
+            "id": "Y_alt",
+            "name": "Teacher in Gray",
+            "gender": "Female",
+            "occupation": "Elementary teacher",
+            "clothing": "Gray coat; satchel",
+            "role": "Volunteer guide",
+            "attrs": ["keeps_distance", "notices_children"],
+            "tags": ["suspect:decoy", "motive:protective"]
+          }
+        ]
+      },
+      "templates": {
+        "descriptionBeats": [
+          {
+            "id": "beat_space",
+            "text": "The ${locationMain.label} consists of two main areas: ${roomEntrance.label} (Area A), the entrance foyer where visitors first arrive, and ${roomStorage.label} (Area B), a larger storage area deeper inside. A narrow corridor connects these two spaces, creating the only path between them. The chaos erupted in Area A, but the baby disappeared from Area B.",
+            "tags": [
+              "beat:space",
+              "tone:descriptive"
+            ]
+          },
+          {
+            "id": "beat_intro",
+            "text": "The ${locationMain.label} buzzed with visitors when a group arrived with a baby in a ${stroller.label}.",
+            "tags": [
+              "beat:intro",
+              "tone:neutral"
+            ]
+          },
+          {
+            "id": "beat_noise",
+            "text": "Screams erupted near ${roomEntrance.label}; people rushed out from ${roomStorage.label} to check what happened.",
+            "tags": [
+              "beat:disturbance",
+              "timeline:macro"
+            ]
+          },
+          {
+            "id": "beat_vanish",
+            "text": "Moments later, the baby was gone. In the stroller lay a ${blanketInStroller.color} blanket; a ${blanketNearExit.color} one was later found near the exit.",
+            "tags": [
+              "beat:twist",
+              "evidence:blanket_color"
+            ]
+          }
+        ],
+        "microEvents": {
+          "preIncident": [
+            {
+              "id": "pre_arrival_decoy",
+              "text": "A woman dressed in black entered earlier and kept to herself.",
+              "tags": [
+                "event:pre"
+              ]
+            }
+          ],
+          "duringIncident": [
+            {
+              "id": "during_attack",
+              "text": "${supportActor.name} shoved ${suspects.A.name} near ${roomEntrance.label} and fled toward ${roomStorage.label}.",
+              "tags": [
+                "event:during",
+                "source:eyewitness"
+              ]
+            }
+          ],
+          "postIncident": [
+            {
+              "id": "post_search",
+              "text": "Search parties split between ${roomEntrance.label} and ${roomStorage.label}.",
+              "tags": [
+                "event:post"
+              ]
+            }
+          ]
+        },
+        "initialClues": [
+          {
+            "id": "clue_family_relation",
+            "title": "Family Relations",
+            "category": "BACKGROUND",
+            "difficulty": 1,
+            "text": "${suspects.A.name} and ${suspects.B.name} remarried after previous divorces; tension still exists between them.",
+            "tags": [
+              "clue:initial",
+              "type:background",
+              "logic:node.context"
+            ]
+          },
+          {
+            "id": "clue_past_miscarriage",
+            "title": "Past Miscarriages",
+            "category": "BACKGROUND",
+            "difficulty": 2,
+            "text": "${suspects.D.name} suffered multiple miscarriages years before; neighbors said she avoided children since.",
+            "tags": [
+              "clue:initial",
+              "type:background",
+              "logic:node.motive"
+            ]
+          },
+          {
+            "id": "clue_arrival_time",
+            "title": "Arrival Times",
+            "category": "TIMELINE",
+            "difficulty": 1,
+            "text": "Visitor logs show ${suspects.A.name} entered ${locationMain.label} at 14:10, ${decoyVisitor.name} at 13:30, and ${supportActor.name} at 14:15.",
+            "tags": [
+              "clue:initial",
+              "type:timeline"
+            ]
+          },
+          {
+            "id": "clue_sound_sequence",
+            "title": "Sequence of Sounds",
+            "category": "TIMELINE",
+            "difficulty": 2,
+            "text": "Security audio caught two screams: one at ${timeWindow.start} near ${roomEntrance.label}, another at ${timeWindow.end} near ${roomStorage.label}.",
+            "tags": [
+              "clue:initial",
+              "type:timeline"
+            ]
+          },
+          {
+            "id": "clue_blanket_colors",
+            "title": "Blanket Colors",
+            "category": "PHYSICAL",
+            "difficulty": 1,
+            "text": "A ${blanketInStroller.color} blanket was left in the ${stroller.label}, but a ${blanketNearExit.color} one was recovered at the exit.",
+            "tags": [
+              "clue:initial",
+              "type:physical",
+              "logic:node.timeline"
+            ]
+          },
+          {
+            "id": "clue_stroller_build",
+            "title": "Stroller Build",
+            "category": "PHYSICAL",
+            "difficulty": 2,
+            "text": "The ${stroller.label} was modified with a false bottom compartment.",
+            "tags": [
+              "clue:initial",
+              "type:physical",
+              "logic:node.act"
+            ]
+          },
+          {
+            "id": "clue_police_call",
+            "title": "Police Call Record",
+            "category": "TESTIMONIAL",
+            "difficulty": 1,
+            "text": "${suspects.B.name} contacted the police at 14:27, minutes after the first scream.",
+            "tags": [
+              "clue:initial",
+              "type:testimonial",
+              "origin:wife"
+            ]
+          },
+          {
+            "id": "clue_argument_witness",
+            "title": "Witness Argument",
+            "category": "TESTIMONIAL",
+            "difficulty": 1,
+            "text": "A visitor recalls hearing ${supportActor.name} shouting at ${suspects.A.name} moments before the baby went missing.",
+            "tags": [
+              "clue:initial",
+              "type:testimonial",
+              "origin:witness"
+            ]
+          }
+        ],
+        "storeClues": [
+          {
+            "category": "BACKGROUND",
+            "clue": {
+              "id": "bg_financial_strain",
+              "title": "Financial Strain",
+              "text": "Bank records show ${suspects.A.name} recently withdrew savings to buy a new stroller.",
+              "difficulty": 2,
+              "tags": [
+                "type:background",
+                "logic:node.motive"
+              ]
+            }
+          },
+          {
+            "category": "BACKGROUND",
+            "clue": {
+              "id": "bg_fake_preg_claim",
+              "title": "False Pregnancy Rumor",
+              "text": "Former colleagues claim ${suspects.D.name} once lied about being pregnant to keep her marriage stable.",
+              "difficulty": 2,
+              "tags": [
+                "type:background",
+                "logic:node.motive"
+              ]
+            }
+          },
+          {
+            "category": "TIMELINE",
+            "clue": {
+              "id": "tl_camera_blindspot",
+              "title": "Camera Blind Spot",
+              "text": "Security footage between ${timeWindow.start} and ${timeWindow.end} went dark in ${roomStorage.label}.",
+              "difficulty": 2,
+              "tags": [
+                "type:timeline",
+                "logic:node.opportunity"
+              ]
+            }
+          },
+          {
+            "category": "TIMELINE",
+            "clue": {
+              "id": "tl_liander_last_seen",
+              "title": "Liander’s Last Seen",
+              "text": "${supportActor.name} was last spotted running toward ${roomStorage.label} carrying a blanket at ${timeWindow.start}.",
+              "difficulty": 1,
+              "tags": [
+                "type:timeline",
+                "origin:eyewitness"
+              ]
+            }
+          },
+          {
+            "category": "PHYSICAL",
+            "clue": {
+              "id": "ph_sleeping_pill_residue",
+              "title": "Sleeping Pill Residue",
+              "text": "A powder similar to sedatives was detected inside ${suspects.D.name}’s handbag.",
+              "difficulty": 2,
+              "tags": [
+                "type:physical",
+                "logic:node.act"
+              ]
+            }
+          },
+          {
+            "category": "PHYSICAL",
+            "clue": {
+              "id": "ph_stroller_clasp",
+              "title": "Hidden Latch",
+              "text": "Inspectors found a hidden latch under the ${stroller.label} handle, suggesting premeditation.",
+              "difficulty": 1,
+              "tags": [
+                "type:physical",
+                "logic:node.plan"
+              ]
+            }
+          },
+          {
+            "category": "TESTIMONIAL",
+            "clue": {
+              "id": "tm_conflicting_story",
+              "title": "Conflicting Story",
+              "text": "${suspects.C.name} claimed ${suspects.D.name} stayed with him, but another witness saw her leaving toward ${roomStorage.label}.",
+              "difficulty": 2,
+              "tags": [
+                "type:testimonial",
+                "logic:node.contradiction"
+              ]
+            }
+          },
+          {
+            "category": "TESTIMONIAL",
+            "clue": {
+              "id": "tm_black_dress_quote",
+              "title": "Woman in Black’s Statement",
+              "text": "${decoyVisitor.name} said she saw someone hiding an object shaped like a baby under a coat near ${roomStorage.label}.",
+              "difficulty": 1,
+              "tags": [
+                "type:testimonial",
+                "origin:decoy"
+              ]
+            }
+          }
+        ],
+        "statementEntries": [
+          {
+            "id": "opening_01",
+            "text": "The group with ${suspects.A.name} and ${suspects.B.name} entered the ${locationMain.label} at 14:10.",
+            "origin": "opening",
+            "tags": [
+              "type:timeline"
+            ]
+          },
+          {
+            "id": "support_01",
+            "text": "${supportActor.name} attacked ${suspects.A.name} near ${roomEntrance.label} at about ${timeWindow.start}.",
+            "origin": "support",
+            "tags": [
+              "type:testimonial"
+            ]
+          },
+          {
+            "id": "support_02",
+            "text": "${suspects.C.name} tended to ${suspects.A.name}'s injuries while ${suspects.D.name} was out of sight.",
+            "origin": "support",
+            "tags": [
+              "type:opportunity"
+            ]
+          }
+        ],
+        "quizQuestions": [
+          {
+            "id": "quiz_culprit",
+            "question": "Who abducted the baby?",
+            "options": [
+              "${suspects.A.name}",
+              "${suspects.B.name}",
+              "${suspects.C.name}",
+              "${suspects.D.name}"
+            ],
+            "answer": "${suspects.D.name}",
+            "difficulty": 3,
+            "tags": [
+              "quiz:final",
+              "type:single"
+            ]
+          },
+          {
+            "id": "quiz_method",
+            "question": "How was the baby concealed?",
+            "options": [
+              "Inside a fake pregnancy belly",
+              "Hidden in ${stroller.label}",
+              "In a maintenance cart",
+              "Under a bench"
+            ],
+            "answer": "Inside a fake pregnancy belly",
+            "difficulty": 2,
+            "tags": [
+              "quiz:method",
+              "type:single"
+            ]
+          },
+          {
+            "id": "quiz_time",
+            "question": "When did the incident occur?",
+            "options": [
+              "${timeWindow.start}-${timeWindow.end}",
+              "13:45-14:00",
+              "15:00-15:15",
+              "14:40-14:50"
+            ],
+            "answer": "${timeWindow.start}-${timeWindow.end}",
+            "difficulty": 1,
+            "tags": [
+              "quiz:timeline",
+              "type:single"
+            ]
+          },
+          {
+            "id": "quiz_blanket",
+            "question": "What color was the blanket found in the stroller?",
+            "options": [
+              "${blanketInStroller.color}",
+              "${blanketNearExit.color}",
+              "green",
+              "white"
+            ],
+            "answer": "${blanketInStroller.color}",
+            "difficulty": 1,
+            "tags": [
+              "quiz:evidence",
+              "type:single"
+            ]
+          },
+          {
+            "id": "quiz_hidden_feature",
+            "question": "Which feature suggested the stroller had a secret compartment?",
+            "options": [
+              "Hidden latch under handle",
+              "Loose fabric at base",
+              "Broken wheel",
+              "Folded canopy"
+            ],
+            "answer": "Hidden latch under handle",
+            "difficulty": 2,
+            "tags": [
+              "quiz:physical",
+              "type:single"
+            ]
+          },
+          {
+            "id": "quiz_conflict",
+            "question": "Whose statement contradicted ${suspects.C.name}'s testimony?",
+            "options": [
+              "${decoyVisitor.name}",
+              "Security guard",
+              "${suspects.B.name}",
+              "No one"
+            ],
+            "answer": "${decoyVisitor.name}",
+            "difficulty": 2,
+            "tags": [
+              "quiz:testimonial",
+              "type:single"
+            ]
+          },
+          {
+            "id": "quiz_camera",
+            "question": "Which location experienced a camera blackout between ${timeWindow.start} and ${timeWindow.end}?",
+            "options": [
+              "${roomStorage.label}",
+              "${roomEntrance.label}",
+              "Main Gallery",
+              "Rest Area"
+            ],
+            "answer": "${roomStorage.label}",
+            "difficulty": 1,
+            "tags": [
+              "quiz:timeline",
+              "type:single"
+            ]
+          },
+          {
+            "id": "quiz_motive",
+            "question": "What was ${suspects.D.name}’s main motive?",
+            "options": [
+              "She wanted a child after miscarriages",
+              "Financial gain",
+              "Revenge on ${suspects.A.name}",
+              "Drunken rage"
+            ],
+            "answer": "She wanted a child after miscarriages",
+            "difficulty": 2,
+            "tags": [
+              "quiz:background",
+              "type:single"
+            ]
+          },
+          {
+            "id": "quiz_decoy",
+            "question": "What did ${decoyVisitor.name} report seeing near the exit?",
+            "options": [
+              "Someone hiding an object shaped like a baby",
+              "A blue blanket on the floor",
+              "A stroller wheel",
+              "Nothing unusual"
+            ],
+            "answer": "Someone hiding a baby-shaped object",
+            "difficulty": 1,
+            "tags": [
+              "quiz:eyewitness",
+              "type:single"
+            ]
+          },
+          {
+            "id": "quiz_residue",
+            "question": "Where was residue of sleeping pills discovered?",
+            "options": [
+              "Inside ${suspects.D.name}’s handbag",
+              "In ${roomEntrance.label}",
+              "On ${suspects.C.name}’s gloves",
+              "Near the stroller wheel"
+            ],
+            "answer": "Inside ${suspects.D.name}’s handbag",
+            "difficulty": 2,
+            "tags": [
+              "quiz:physical",
+              "type:single"
+            ]
+          }
+        ],
+        "solution": {
+          "summary": "${suspects.D.name} exploited the chaos created by ${supportActor.name}, sedated the infant, and concealed the baby using a fake pregnancy belly between ${timeWindow.start} and ${timeWindow.end}.",
+          "details": [
+            "The swap of two blankets misled the direction of escape.",
+            "Hidden compartment on the stroller suggests planned concealment opportunities.",
+            "Sedatives linked to ${suspects.D.name} support the method.",
+            "${suspects.C.name} was with ${suspects.A.name} during first aid, giving ${suspects.D.name} time alone."
+          ],
+          "tags": [
+            "solution:standard",
+            "culprit:D"
+          ]
+        }
+      },
+      "metadata": {
+        "blurb": "A disappearance at a busy museum turns into a logic puzzle of blankets, routes, and a staged pregnancy.",
+        "ui": {
+          "origin_tags": [
+            "opening",
+            "support",
+            "purchased"
+          ]
+        }
+      }
+    },
+    {
+      "id": "story_blackwood_midnight_dagger",
+      "title": "Midnight at Blackwood Manor",
+      "tags": ["story:mansion", "difficulty:medium"],
+      "variables": {
+        "victim": [
+          {
+            "id": "victim_edgar",
+            "name": "Edgar Blackwood",
+            "role": "Antique Collector",
+            "tags": ["victim:adult"]
+          },
+          {
+            "id": "victim_arthur",
+            "name": "Arthur Blackwood",
+            "role": "Wealthy Collector",
+            "tags": ["victim:adult"]
+          },
+          {
+            "id": "victim_henry",
+            "name": "Henry Blackwood",
+            "role": "Art Collector",
+            "tags": ["victim:adult"]
+          }
+        ],
+        "locationMain": [
+          {
+            "id": "loc_study",
+            "label": "the Blackwood Manor Study",
+            "tags": ["location:indoor"]
+          },
+          {
+            "id": "loc_library",
+            "label": "the Blackwood Manor Library",
+            "tags": ["location:indoor"]
+          },
+          {
+            "id": "loc_drawing",
+            "label": "the Blackwood Manor Drawing Room",
+            "tags": ["location:indoor"]
+          }
+        ],
+        "timeWindow": [
+          {
+            "id": "window_midnight",
+            "start": "23:55",
+            "end": "00:05",
+            "tags": ["time:midnight"]
+          },
+          {
+            "id": "window_late_night",
+            "start": "23:45",
+            "end": "23:55",
+            "tags": ["time:midnight"]
+          },
+          {
+            "id": "window_early_morning",
+            "start": "00:10",
+            "end": "00:20",
+            "tags": ["time:midnight"]
+          }
+        ],
+        "suspects": {
+          "A": [
+            {
+              "id": "A",
+              "name": "Isabella Blackwood",
+              "gender": "Female",
+              "occupation": "Heiress",
+              "appearance": "Elegant black dress; pale complexion; nervous demeanor",
+              "clothing": "Elegant black dress; formal accessories",
+              "role": "Daughter of the Deceased",
+              "tags": ["suspect"]
+            },
+            {
+              "id": "A_alt",
+              "name": "Charlotte Blackwood",
+              "gender": "Female",
+              "occupation": "Socialite",
+              "appearance": "Silk evening gown; expensive jewelry; anxious expression",
+              "clothing": "Silk evening gown; expensive jewelry",
+              "role": "Daughter of the Deceased",
+              "tags": ["suspect"]
+            },
+            {
+              "id": "A_alt2",
+              "name": "Amelia Blackwood",
+              "gender": "Female",
+              "occupation": "Inheritance Beneficiary",
+              "appearance": "Formal attire; trembling hands; worried eyes",
+              "clothing": "Formal attire; conservative dress",
+              "role": "Daughter of the Deceased",
+              "tags": ["suspect"]
+            }
+          ],
+          "B": [
+            {
+              "id": "B",
+              "name": "Victor Lyon",
+              "gender": "Male",
+              "occupation": "Business Partner",
+              "appearance": "Well tailored suit; confident posture; calculating eyes",
+              "clothing": "Well tailored suit; business attire",
+              "role": "Business Partner",
+              "tags": ["suspect"]
+            },
+            {
+              "id": "B_alt",
+              "name": "Alexander Lyon",
+              "gender": "Male",
+              "occupation": "Corporate Executive",
+              "appearance": "Expensive business suit; polished shoes; stern expression",
+              "clothing": "Expensive business suit; polished shoes",
+              "role": "Business Partner",
+              "tags": ["suspect"]
+            },
+            {
+              "id": "B_alt2",
+              "name": "Nathaniel Lyon",
+              "gender": "Male",
+              "occupation": "Investment Partner",
+              "appearance": "Professional attire; watchful gaze; composed demeanor",
+              "clothing": "Professional attire; business suit",
+              "role": "Business Partner",
+              "tags": ["suspect"]
+            }
+          ],
+          "C": [
+            {
+              "id": "C",
+              "name": "Lillian Hart",
+              "gender": "Female",
+              "occupation": "Manor Tutor",
+              "appearance": "Modest dress; gentle features; quiet presence",
+              "clothing": "Modest dress; simple clothing",
+              "role": "Manor Tutor",
+              "tags": ["suspect"]
+            },
+            {
+              "id": "C_alt",
+              "name": "Eleanor Hart",
+              "gender": "Female",
+              "occupation": "Private Tutor",
+              "appearance": "Simple clothing; kind eyes; reserved manner",
+              "clothing": "Simple clothing; modest attire",
+              "role": "Manor Tutor",
+              "tags": ["suspect"]
+            },
+            {
+              "id": "C_alt2",
+              "name": "Margaret Hart",
+              "gender": "Female",
+              "occupation": "Educator",
+              "appearance": "Conservative dress; thoughtful expression; calm disposition",
+              "clothing": "Conservative dress; professional attire",
+              "role": "Manor Tutor",
+              "tags": ["suspect"]
+            }
+          ],
+          "D": [
+            {
+              "id": "D",
+              "name": "Sebastian Croft",
+              "gender": "Male",
+              "occupation": "Portrait Painter",
+              "appearance": "Artistic attire; paint stained hands; intense gaze",
+              "clothing": "Artistic attire; paint stained clothes",
+              "role": "Portrait Painter",
+              "tags": ["suspect:main"]
+            },
+            {
+              "id": "D_alt",
+              "name": "Julian Croft",
+              "gender": "Male",
+              "occupation": "Artist",
+              "appearance": "Bohemian clothing; creative accessories; brooding expression",
+              "clothing": "Bohemian clothing; creative accessories",
+              "role": "Portrait Painter",
+              "tags": ["suspect:main"]
+            },
+            {
+              "id": "D_alt2",
+              "name": "Damian Croft",
+              "gender": "Male",
+              "occupation": "Painter",
+              "appearance": "Studio wear; artistic flair; mysterious demeanor",
+              "clothing": "Studio wear; artistic clothing",
+              "role": "Portrait Painter",
+              "tags": ["suspect:main"]
+            }
+          ]
+        },
+        "roomEntrance": [
+          {
+            "id": "entrance_main",
+            "label": "Main Hallway Entrance"
+          },
+          {
+            "id": "entrance_foyer",
+            "label": "Grand Foyer"
+          },
+          {
+            "id": "entrance_vestibule",
+            "label": "Front Vestibule"
+          }
+        ],
+        "roomStorage": [
+          {
+            "id": "storage_shelf",
+            "label": "Study Display Cabinet"
+          },
+          {
+            "id": "storage_bookshelf",
+            "label": "Library Bookshelf"
+          },
+          {
+            "id": "storage_cabinet",
+            "label": "Antique Display Case"
+          }
+        ],
+        "supportActor": [
+          {
+            "id": "support_housekeeper",
+            "name": "The Housekeeper",
+            "role": "Witness"
+          },
+          {
+            "id": "support_butler",
+            "name": "The Butler",
+            "role": "Longtime Staff"
+          },
+          {
+            "id": "support_maid",
+            "name": "The Head Maid",
+            "role": "Senior Staff Member"
+          }
+        ]
+      },
+      "templates": {
+        "descriptionBeats": [
+          {
+            "id": "beat_intro",
+            "text": "A violent storm cut off all outside contact at Blackwood Manor. Inside ${locationMain.label}, ${victim.name} was found dead at midnight, stabbed with an antique dagger.",
+            "tags": ["beat:intro"]
+          },
+          {
+            "id": "beat_lockdown",
+            "text": "Lightning destroyed the phone lines. No one could enter or leave between ${timeWindow.start} and ${timeWindow.end}. All four guests became suspects.",
+            "tags": ["beat:context"]
+          },
+          {
+            "id": "beat_suspicion",
+            "text": "Each suspect carried secrets, debts, or past humiliations connected to ${victim.name}. The truth lies within their conflicting stories.",
+            "tags": ["beat:tension"]
+          }
+        ],
+        "initialClues": [
+          {
+            "id": "init_1",
+            "title": "Diary Entry",
+            "category": "BACKGROUND",
+            "difficulty": 1,
+            "text": "${victim.name}'s diary mentions fears that ${suspects.C.name} might be 'too much like Harriet.'",
+            "tags": ["clue:initial", "type:background"]
+          },
+          {
+            "id": "init_2",
+            "title": "Perfume Bottle",
+            "category": "PHYSICAL",
+            "difficulty": 1,
+            "text": "A perfume bottle in the victim's bedroom matches the scent used by someone close to ${suspects.D.name}.",
+            "tags": ["clue:initial", "type:physical"]
+          },
+          {
+            "id": "init_3",
+            "title": "Frequent Visitor",
+            "category": "TESTIMONIAL",
+            "difficulty": 1,
+            "text": "${supportActor.name} recalls a woman in a blue dress visiting the manor often last month.",
+            "tags": ["clue:initial", "type:testimonial"]
+          },
+          {
+            "id": "init_4",
+            "title": "Empty Medicine Bottle",
+            "category": "PHYSICAL",
+            "difficulty": 1,
+            "text": "An empty medicine bottle is found in ${suspects.A.name}'s drawer.",
+            "tags": ["clue:initial", "type:physical"]
+          },
+          {
+            "id": "init_5",
+            "title": "Hospital Report",
+            "category": "BACKGROUND",
+            "difficulty": 2,
+            "text": "A psychiatric evaluation suggests someone in the manor was recommended for immediate observation.",
+            "tags": ["clue:initial", "type:background"]
+          },
+          {
+            "id": "init_6",
+            "title": "Salary Records",
+            "category": "BACKGROUND",
+            "difficulty": 1,
+            "text": "${suspects.C.name} received unusually high payments from ${victim.name}.",
+            "tags": ["clue:initial", "type:background"]
+          },
+          {
+            "id": "init_7",
+            "title": "Bank Notice",
+            "category": "BACKGROUND",
+            "difficulty": 1,
+            "text": "A collection letter addressed to ${suspects.B.name} indicates three months of unpaid debt.",
+            "tags": ["clue:initial", "type:background"]
+          },
+          {
+            "id": "init_8",
+            "title": "Heated Argument",
+            "category": "TESTIMONIAL",
+            "difficulty": 1,
+            "text": "${supportActor.name} overheard ${suspects.B.name} yelling 'I'll pay it back!' at ${victim.name}.",
+            "tags": ["clue:initial", "type:testimonial"]
+          },
+          {
+            "id": "init_9",
+            "title": "Small Footprints",
+            "category": "PHYSICAL",
+            "difficulty": 2,
+            "text": "Mud prints near the window suggest smaller shoes, likely belonging to a woman.",
+            "tags": ["clue:initial", "type:physical"]
+          },
+          {
+            "id": "init_10",
+            "title": "Dagger Notes",
+            "category": "BACKGROUND",
+            "difficulty": 2,
+            "text": "Records show the antique dagger is sharp but requires close contact to stab effectively.",
+            "tags": ["clue:initial", "type:background"]
+          }
+        ],
+        "storeClues": [
+          {
+            "category": "BACKGROUND",
+            "clue": {
+              "id": "bg_will_change",
+              "title": "Drafted Will Change",
+              "difficulty": 2,
+              "text": "${victim.name} planned to revise his will, removing ${suspects.A.name}'s inheritance rights.",
+              "tags": ["type:background"]
+            }
+          },
+          {
+            "category": "BACKGROUND",
+            "clue": {
+              "id": "bg_revenge_sketch",
+              "title": "Artist's Hidden Sketch",
+              "difficulty": 2,
+              "text": "${suspects.D.name} once drew revenge themed artwork after losing a major commission.",
+              "tags": ["type:background"]
+            }
+          },
+          {
+            "category": "TIMELINE",
+            "clue": {
+              "id": "tl_footsteps",
+              "title": "Running Footsteps",
+              "difficulty": 2,
+              "text": "A maid heard rushed footsteps toward ${locationMain.label} between ${timeWindow.start} and ${timeWindow.end}.",
+              "tags": ["type:timeline"]
+            }
+          },
+          {
+            "category": "TIMELINE",
+            "clue": {
+              "id": "tl_alarm_offline",
+              "title": "Alarm Short Circuit",
+              "difficulty": 2,
+              "text": "A power fluctuation temporarily disabled door alarms in the study.",
+              "tags": ["type:timeline"]
+            }
+          },
+          {
+            "category": "PHYSICAL",
+            "clue": {
+              "id": "ph_blood_angle",
+              "title": "Blood Direction",
+              "difficulty": 2,
+              "text": "Blood pattern suggests the dagger was thrust from the front while the victim was standing.",
+              "tags": ["type:physical"]
+            }
+          },
+          {
+            "category": "PHYSICAL",
+            "clue": {
+              "id": "ph_burned_papers",
+              "title": "Burned Paper",
+              "difficulty": 2,
+              "text": "Ashes in the fireplace include fragments of handwritten notes.",
+              "tags": ["type:physical"]
+            }
+          },
+          {
+            "category": "TESTIMONIAL",
+            "clue": {
+              "id": "tm_shadow",
+              "title": "Shadowy Figure",
+              "difficulty": 2,
+              "text": "${supportActor.name} saw a male silhouette near ${locationMain.label} shortly before midnight.",
+              "tags": ["type:testimonial"]
+            }
+          },
+          {
+            "category": "TESTIMONIAL",
+            "clue": {
+              "id": "tm_argument",
+              "title": "Muffled Argument",
+              "difficulty": 2,
+              "text": "A maid heard a woman crying and arguing near the hallway.",
+              "tags": ["type:testimonial"]
+            }
+          }
+        ],
+        "statementEntries": [
+          {
+            "id": "st_isabella_1",
+            "text": "${suspects.A.name} claims she stayed in her room all night.",
+            "origin": "opening",
+            "tags": ["type:testimonial"]
+          },
+          {
+            "id": "st_isabella_2",
+            "text": "${suspects.A.name} denies using any medication, despite the bottle found.",
+            "origin": "support",
+            "tags": ["type:testimonial"]
+          },
+          {
+            "id": "st_victor_1",
+            "text": "${suspects.B.name} says he never entered ${locationMain.label}.",
+            "origin": "opening",
+            "tags": ["type:testimonial"]
+          },
+          {
+            "id": "st_victor_2",
+            "text": "${suspects.B.name} insists debt has nothing to do with the incident.",
+            "origin": "support",
+            "tags": ["type:background"]
+          },
+          {
+            "id": "st_lillian_1",
+            "text": "${suspects.C.name} claims she was near the kitchen during the incident.",
+            "origin": "opening",
+            "tags": ["type:testimonial"]
+          },
+          {
+            "id": "st_lillian_2",
+            "text": "${suspects.C.name} heard someone running upstairs moments before midnight.",
+            "origin": "support",
+            "tags": ["type:timeline"]
+          },
+          {
+            "id": "st_lillian_3",
+            "text": "${suspects.C.name} is unsure why ${victim.name} paid her unusually high wages.",
+            "origin": "support",
+            "tags": ["type:background"]
+          },
+          {
+            "id": "st_sebastian_1",
+            "text": "${suspects.D.name} says he spent the whole evening in the art room.",
+            "origin": "opening",
+            "tags": ["type:testimonial"]
+          },
+          {
+            "id": "st_sebastian_2",
+            "text": "${suspects.D.name} denies burning anything in the fireplace.",
+            "origin": "support",
+            "tags": ["type:testimonial"]
+          },
+          {
+            "id": "st_housekeeper",
+            "text": "${supportActor.name} claims the household was unusually tense that night.",
+            "origin": "support",
+            "tags": ["type:testimonial"]
+          }
+        ],
+        "quizQuestions": [
+          {
+            "id": "quiz_final",
+            "question": "Who killed ${victim.name}?",
+            "options": ["${suspects.A.name}", "${suspects.B.name}", "${suspects.C.name}", "${suspects.D.name}"],
+            "answer": "${suspects.D.name}",
+            "difficulty": 3,
+            "tags": ["quiz:final"]
+          },
+          {
+            "id": "quiz_method",
+            "question": "How was the murder carried out?",
+            "options": [
+              "Poisoning during dinner",
+              "Stabbing with the antique dagger",
+              "Pushing Edgar from the balcony",
+              "Strangulation"
+            ],
+            "answer": "Stabbing with the antique dagger",
+            "difficulty": 2,
+            "tags": ["quiz:method"]
+          },
+          {
+            "id": "quiz_timeline",
+            "question": "When did the crime most likely occur?",
+            "options": [
+              "${timeWindow.start}-${timeWindow.end}",
+              "22:00-22:10",
+              "00:30-00:40",
+              "Unknown"
+            ],
+            "answer": "${timeWindow.start}-${timeWindow.end}",
+            "difficulty": 1,
+            "tags": ["quiz:timeline"]
+          },
+          {
+            "id": "quiz_isabella_conflict",
+            "question": "Why did ${suspects.A.name} have conflict with ${victim.name}?",
+            "options": [
+              "Inheritance dispute",
+              "He planned to send her to a mental hospital",
+              "She owed him money",
+              "She wanted to leave the manor"
+            ],
+            "answer": "He planned to send her to a mental hospital",
+            "difficulty": 1,
+            "tags": ["quiz:background"]
+          },
+          {
+            "id": "quiz_victor_board",
+            "question": "Why did ${victim.name} want to remove ${suspects.B.name} from the board?",
+            "options": [
+              "Personal hatred",
+              "He embezzled funds",
+              "He was moving abroad",
+              "He was ill"
+            ],
+            "answer": "He embezzled funds",
+            "difficulty": 1,
+            "tags": ["quiz:background"]
+          },
+          {
+            "id": "quiz_lillian_treatment",
+            "question": "Why was ${suspects.C.name} treated differently by ${victim.name}?",
+            "options": [
+              "She was highly competent",
+              "She was his illegitimate daughter",
+              "She was secretly wealthy",
+              "She was his assistant"
+            ],
+            "answer": "She was his illegitimate daughter",
+            "difficulty": 1,
+            "tags": ["quiz:background"]
+          },
+          {
+            "id": "quiz_sebastian_conflict",
+            "question": "What major conflict did ${suspects.D.name} have with ${victim.name}?",
+            "options": [
+              "Artistic plagiarism and romantic betrayal",
+              "Financial disputes",
+              "Lawsuits",
+              "Jealousy over inheritance"
+            ],
+            "answer": "Artistic plagiarism and romantic betrayal",
+            "difficulty": 1,
+            "tags": ["quiz:background"]
+          },
+          {
+            "id": "quiz_evidence_fireplace",
+            "question": "What was found in the fireplace?",
+            "options": [
+              "A burned sketch with vengeful words",
+              "A destroyed will",
+              "Ashes from letters written by Isabella",
+              "Nothing unusual"
+            ],
+            "answer": "A burned sketch with vengeful words",
+            "difficulty": 2,
+            "tags": ["quiz:evidence"]
+          },
+          {
+            "id": "quiz_testimonial_shadow",
+            "question": "Who saw a shadowy figure near ${locationMain.label}?",
+            "options": [
+              "${supportActor.name}",
+              "${suspects.A.name}",
+              "${suspects.B.name}",
+              "${suspects.C.name}"
+            ],
+            "answer": "${supportActor.name}",
+            "difficulty": 1,
+            "tags": ["quiz:testimonial"]
+          },
+          {
+            "id": "quiz_weapon",
+            "question": "What was the murder weapon?",
+            "options": [
+              "An antique dagger",
+              "A kitchen knife",
+              "A rope",
+              "Poison"
+            ],
+            "answer": "An antique dagger",
+            "difficulty": 1,
+            "tags": ["quiz:evidence"]
+          }
+        ],
+        "solution": {
+          "summary": "${suspects.D.name} murdered ${victim.name} using the antique dagger during the storm induced blackout.",
+          "details": [
+            "${suspects.D.name} held deep grudges due to artistic plagiarism and personal betrayal.",
+            "He waited near ${locationMain.label} until the power fluctuation disabled security alarms.",
+            "He used the dagger to stab ${victim.name} from the front.",
+            "He burned his revenge sketch in the fireplace to destroy evidence.",
+            "Footsteps and shadows were heard by witnesses around ${timeWindow.start}.",
+            "Only ${suspects.D.name}'s exclusive evidence—the burned sketch—confirms his guilt."
+          ],
+          "tags": ["solution:standard", "culprit:D"]
+        }
+      },
+      "metadata": {
+        "blurb": "A storm traps everyone inside Blackwood Manor as Edgar Blackwood is murdered in his study at midnight. Each guest hides a motive, but only one burned sketch reveals the truth."
+      }
+    },
+    {
+      "id": "story_mountain_lodge_murder",
+      "title": "Murder at the Mountain Lodge",
+      "tags": ["story:lodge", "difficulty:medium"],
+      "variables": {
+        "victim": [
+          {
+            "id": "victim_henry",
+            "name": "Henry Caldwell",
+            "role": "Wealthy Investor",
+            "tags": ["victim:adult"]
+          },
+          {
+            "id": "victim_richard",
+            "name": "Richard Morgan",
+            "role": "Business Tycoon",
+            "tags": ["victim:adult"]
+          },
+          {
+            "id": "victim_thomas",
+            "name": "Thomas Westwood",
+            "role": "Investment Banker",
+            "tags": ["victim:adult"]
+          }
+        ],
+        "locationMain": [
+          {
+            "id": "loc_lounge",
+            "label": "the Mountain Lodge Main Lounge",
+            "tags": ["location:indoor"]
+          },
+          {
+            "id": "loc_dining",
+            "label": "the Mountain Lodge Dining Hall",
+            "tags": ["location:indoor"]
+          },
+          {
+            "id": "loc_library",
+            "label": "the Mountain Lodge Library",
+            "tags": ["location:indoor"]
+          }
+        ],
+        "timeWindow": [
+          {
+            "id": "window_late",
+            "start": "01:00",
+            "end": "01:10",
+            "tags": ["time:late_night"]
+          },
+          {
+            "id": "window_midnight",
+            "start": "00:30",
+            "end": "00:40",
+            "tags": ["time:late_night"]
+          },
+          {
+            "id": "window_early",
+            "start": "01:30",
+            "end": "01:40",
+            "tags": ["time:late_night"]
+          }
+        ],
+        "suspects": {
+          "A": [
+            {
+              "id": "A",
+              "name": "Emily Carter",
+              "gender": "Female",
+              "occupation": "Psychological Counselor",
+              "appearance": "Professional blazer; calm demeanor; observant eyes",
+              "clothing": "Professional blazer; business attire",
+              "role": "Psychological Counselor",
+              "tags": ["suspect"]
+            },
+            {
+              "id": "A_alt",
+              "name": "Sarah Mitchell",
+              "gender": "Female",
+              "occupation": "Therapist",
+              "appearance": "Neat cardigan; composed expression; attentive gaze",
+              "clothing": "Neat cardigan; professional dress",
+              "role": "Therapist",
+              "tags": ["suspect"]
+            },
+            {
+              "id": "A_alt2",
+              "name": "Jessica Walsh",
+              "gender": "Female",
+              "occupation": "Mental Health Counselor",
+              "appearance": "Business casual; steady composure; analytical look",
+              "clothing": "Business casual; professional outfit",
+              "role": "Mental Health Counselor",
+              "tags": ["suspect"]
+            }
+          ],
+          "B": [
+            {
+              "id": "B",
+              "name": "Daniel Brooks",
+              "gender": "Male",
+              "occupation": "Corporate Lawyer",
+              "appearance": "Expensive suit; polished shoes; tense expression",
+              "clothing": "Expensive suit; polished shoes",
+              "role": "Corporate Lawyer",
+              "tags": ["suspect"]
+            },
+            {
+              "id": "B_alt",
+              "name": "Michael Chen",
+              "gender": "Male",
+              "occupation": "Legal Advisor",
+              "appearance": "Tailored suit; expensive watch; worried frown",
+              "clothing": "Tailored suit; formal accessories",
+              "role": "Legal Advisor",
+              "tags": ["suspect"]
+            },
+            {
+              "id": "B_alt2",
+              "name": "David Thompson",
+              "gender": "Male",
+              "occupation": "Attorney",
+              "appearance": "Professional attire; nervous gestures; calculating eyes",
+              "clothing": "Professional attire; business suit",
+              "role": "Attorney",
+              "tags": ["suspect"]
+            }
+          ],
+          "C": [
+            {
+              "id": "C",
+              "name": "Sophia Hale",
+              "gender": "Female",
+              "occupation": "Novelist",
+              "appearance": "Bohemian sweater; reading glasses; thoughtful expression",
+              "clothing": "Bohemian sweater; comfortable pants",
+              "role": "Novelist",
+              "tags": ["suspect"]
+            },
+            {
+              "id": "C_alt",
+              "name": "Olivia Grant",
+              "gender": "Female",
+              "occupation": "Writer",
+              "appearance": "Artistic clothing; vintage accessories; contemplative look",
+              "clothing": "Artistic clothing; casual style",
+              "role": "Writer",
+              "tags": ["suspect"]
+            },
+            {
+              "id": "C_alt2",
+              "name": "Emma Stone",
+              "gender": "Female",
+              "occupation": "Author",
+              "appearance": "Literary style; bookish charm; introspective demeanor",
+              "clothing": "Literary style; comfortable attire",
+              "role": "Author",
+              "tags": ["suspect"]
+            }
+          ],
+          "D": [
+            {
+              "id": "D",
+              "name": "Liam Foster",
+              "gender": "Male",
+              "occupation": "Ski Instructor",
+              "appearance": "Ski jacket; athletic build; restless movements",
+              "clothing": "Ski jacket; outdoor gear",
+              "role": "Ski Instructor",
+              "tags": ["suspect:main"]
+            },
+            {
+              "id": "D_alt",
+              "name": "Jake Morrison",
+              "gender": "Male",
+              "occupation": "Mountain Guide",
+              "appearance": "Outdoor gear; strong physique; agitated behavior",
+              "clothing": "Outdoor gear; sports equipment",
+              "role": "Mountain Guide",
+              "tags": ["suspect:main"]
+            },
+            {
+              "id": "D_alt2",
+              "name": "Ryan Parker",
+              "gender": "Male",
+              "occupation": "Ski Resort Staff",
+              "appearance": "Winter clothing; fit build; fidgety movements",
+              "clothing": "Winter clothing; ski equipment",
+              "role": "Ski Resort Staff",
+              "tags": ["suspect:main"]
+            }
+          ]
+        },
+        "roomEntrance": [
+          {
+            "id": "entrance_main",
+            "label": "Main Cabin Entrance"
+          },
+          {
+            "id": "entrance_foyer",
+            "label": "Front Foyer"
+          },
+          {
+            "id": "entrance_vestibule",
+            "label": "Entry Vestibule"
+          }
+        ],
+        "roomStorage": [
+          {
+            "id": "storage_ski",
+            "label": "Ski Equipment Room"
+          },
+          {
+            "id": "storage_gear",
+            "label": "Equipment Storage"
+          },
+          {
+            "id": "storage_closet",
+            "label": "Utility Closet"
+          }
+        ],
+        "supportActor": [
+          {
+            "id": "support_housekeeper",
+            "name": "The Housekeeper",
+            "role": "Long-time Lodge Staff"
+          },
+          {
+            "id": "support_manager",
+            "name": "The Lodge Manager",
+            "role": "Senior Staff Member"
+          },
+          {
+            "id": "support_caretaker",
+            "name": "The Caretaker",
+            "role": "Lodge Maintenance Staff"
+          }
+        ]
+      },
+      "templates": {
+        "descriptionBeats": [
+          {
+            "id": "beat_intro",
+            "text": "A violent snowstorm sealed off the mountain roads. Inside ${locationMain.label}, ${victim.name} was found dead, struck from behind with a heavy object.",
+            "tags": ["beat:intro"]
+          },
+          {
+            "id": "beat_lockdown",
+            "text": "The storm cut all communication lines. Between ${timeWindow.start} and ${timeWindow.end}, no one could enter or leave the lodge.",
+            "tags": ["beat:context"]
+          },
+          {
+            "id": "beat_suspicion",
+            "text": "Four guests—all close to ${victim.name}—shared the lodge that night. Old debts, broken promises, and wounded pride came to a deadly peak.",
+            "tags": ["beat:tension"]
+          }
+        ],
+        "initialClues": [
+          {
+            "id": "init_1",
+            "title": "Blood on the Hearth",
+            "category": "PHYSICAL",
+            "difficulty": 1,
+            "text": "Blood spatter near the fireplace suggests ${victim.name} was struck from behind.",
+            "tags": ["clue:initial", "type:physical"]
+          },
+          {
+            "id": "init_2",
+            "title": "Shared Fingerprints",
+            "category": "PHYSICAL",
+            "difficulty": 1,
+            "text": "A glass contains fingerprints of ${suspects.A.name}, ${suspects.C.name}, and ${victim.name}.",
+            "tags": ["clue:initial", "type:physical"]
+          },
+          {
+            "id": "init_3",
+            "title": "Empty Bottle",
+            "category": "PHYSICAL",
+            "difficulty": 1,
+            "text": "An empty wine bottle suggests ${victim.name} was drinking heavily before the incident.",
+            "tags": ["clue:initial", "type:physical"]
+          },
+          {
+            "id": "init_4",
+            "title": "Ski Boot Tracks",
+            "category": "TIMELINE",
+            "difficulty": 1,
+            "text": "Tracks lead from the ${roomStorage.label} to ${locationMain.label}.",
+            "tags": ["clue:initial", "type:timeline"]
+          },
+          {
+            "id": "init_5",
+            "title": "Untouched Snow",
+            "category": "TIMELINE",
+            "difficulty": 1,
+            "text": "Snow piled at ${roomEntrance.label} has no new footprints—no one entered or left the lodge.",
+            "tags": ["clue:initial", "type:timeline"]
+          },
+          {
+            "id": "init_6",
+            "title": "Debt Collection",
+            "category": "BACKGROUND",
+            "difficulty": 1,
+            "text": "Emails reveal ${suspects.B.name} faces significant debt and relies on ${victim.name}'s contract.",
+            "tags": ["clue:initial", "type:background"]
+          },
+          {
+            "id": "init_7",
+            "title": "Rejected Manuscript",
+            "category": "BACKGROUND",
+            "difficulty": 1,
+            "text": "A rejection letter shows ${victim.name} opposed publication of ${suspects.C.name}'s latest novel.",
+            "tags": ["clue:initial", "type:background"]
+          },
+          {
+            "id": "init_8",
+            "title": "Heated Recording",
+            "category": "TESTIMONIAL",
+            "difficulty": 1,
+            "text": "${suspects.A.name}'s voice memo says: 'He cannot keep humiliating me.'",
+            "tags": ["clue:initial", "type:testimonial"]
+          },
+          {
+            "id": "init_9",
+            "title": "Fallen Oak Lamp",
+            "category": "PHYSICAL",
+            "difficulty": 1,
+            "text": "A heavy oak lamp is found knocked over but bears no blood, indicating it wasn't the murder weapon.",
+            "tags": ["clue:initial", "type:physical"]
+          },
+          {
+            "id": "init_10",
+            "title": "Sedative Trace",
+            "category": "PHYSICAL",
+            "difficulty": 2,
+            "text": "Lab tests show mild sedatives in ${victim.name}'s wine.",
+            "tags": ["clue:initial", "type:physical"]
+          }
+        ],
+        "storeClues": [
+          {
+            "category": "BACKGROUND",
+            "clue": {
+              "id": "bg_funding_cut",
+              "title": "Funding Cancelled",
+              "difficulty": 2,
+              "text": "${victim.name} planned to withdraw financial support from ${suspects.A.name}'s therapy project.",
+              "tags": ["type:background"]
+            }
+          },
+          {
+            "category": "BACKGROUND",
+            "clue": {
+              "id": "bg_manuscript_rip",
+              "title": "Manuscript Conflict",
+              "difficulty": 2,
+              "text": "${suspects.C.name}'s draft contains angry notes aimed at ${victim.name}.",
+              "tags": ["type:background"]
+            }
+          },
+          {
+            "category": "TIMELINE",
+            "clue": {
+              "id": "tl_power_loss",
+              "title": "Power Dip",
+              "difficulty": 2,
+              "text": "Lights flickered between ${timeWindow.start} and ${timeWindow.end}, giving someone a brief chance to move unseen.",
+              "tags": ["type:timeline"]
+            }
+          },
+          {
+            "category": "TIMELINE",
+            "clue": {
+              "id": "tl_shadow",
+              "title": "Shadow in the Hall",
+              "difficulty": 2,
+              "text": "${supportActor.name} saw a shadow moving toward ${locationMain.label} at ${timeWindow.start}.",
+              "tags": ["type:timeline"]
+            }
+          },
+          {
+            "category": "PHYSICAL",
+            "clue": {
+              "id": "ph_wound_shape",
+              "title": "Wound Shape",
+              "difficulty": 2,
+              "text": "The injury suggests a long, narrow object—similar to a ski pole—was used.",
+              "tags": ["type:physical"]
+            }
+          },
+          {
+            "category": "PHYSICAL",
+            "clue": {
+              "id": "ph_fireplace_chem",
+              "title": "Chemical Residue",
+              "difficulty": 2,
+              "text": "Fireplace ashes show traces consistent with burned sports equipment.",
+              "tags": ["type:physical"]
+            }
+          },
+          {
+            "category": "TESTIMONIAL",
+            "clue": {
+              "id": "tm_insult",
+              "title": "Heated Words",
+              "difficulty": 2,
+              "text": "A maid overheard ${victim.name} shouting insults at ${suspects.D.name} earlier that day.",
+              "tags": ["type:testimonial"]
+            }
+          },
+          {
+            "category": "TESTIMONIAL",
+            "clue": {
+              "id": "tm_unstable",
+              "title": "Emotional Outburst",
+              "difficulty": 2,
+              "text": "${suspects.B.name} claims ${suspects.A.name} was 'emotionally unstable' before dinner.",
+              "tags": ["type:testimonial"]
+            }
+          }
+        ],
+        "statementEntries": [
+          {
+            "id": "st_emily_1",
+            "text": "${suspects.A.name} claims she stayed in her room during the entire incident window.",
+            "origin": "opening",
+            "tags": ["type:testimonial"]
+          },
+          {
+            "id": "st_emily_2",
+            "text": "${suspects.A.name} denies tampering with ${victim.name}'s wine.",
+            "origin": "support",
+            "tags": ["type:testimonial"]
+          },
+          {
+            "id": "st_daniel_1",
+            "text": "${suspects.B.name} insists he was reviewing financial documents alone.",
+            "origin": "opening",
+            "tags": ["type:testimonial"]
+          },
+          {
+            "id": "st_daniel_2",
+            "text": "${suspects.B.name} admits he feared losing his contract with ${victim.name}.",
+            "origin": "support",
+            "tags": ["type:background"]
+          },
+          {
+            "id": "st_sophia_1",
+            "text": "${suspects.C.name} says she stepped outside briefly to calm down.",
+            "origin": "opening",
+            "tags": ["type:testimonial"]
+          },
+          {
+            "id": "st_sophia_2",
+            "text": "${suspects.C.name} denies adding sedatives to the wine.",
+            "origin": "support",
+            "tags": ["type:testimonial"]
+          },
+          {
+            "id": "st_liam_1",
+            "text": "${suspects.D.name} claims he was organizing skis in the ${roomStorage.label}.",
+            "origin": "opening",
+            "tags": ["type:testimonial"]
+          },
+          {
+            "id": "st_liam_2",
+            "text": "${suspects.D.name} denies entering ${locationMain.label}, contradicting footprints.",
+            "origin": "support",
+            "tags": ["type:testimonial"]
+          },
+          {
+            "id": "st_housekeeper_1",
+            "text": "${supportActor.name} heard a loud thud around ${timeWindow.start}.",
+            "origin": "support",
+            "tags": ["type:timeline"]
+          },
+          {
+            "id": "st_housekeeper_2",
+            "text": "${supportActor.name} recalls an argument earlier involving a male voice.",
+            "origin": "support",
+            "tags": ["type:testimonial"]
+          }
+        ],
+        "quizQuestions": [
+          {
+            "id": "quiz_culprit",
+            "question": "Who killed ${victim.name}?",
+            "options": ["${suspects.A.name}", "${suspects.B.name}", "${suspects.C.name}", "${suspects.D.name}"],
+            "answer": "${suspects.D.name}",
+            "difficulty": 3,
+            "tags": ["quiz:final"]
+          },
+          {
+            "id": "quiz_weapon",
+            "question": "What was the murder weapon?",
+            "options": [
+              "A broken ski pole",
+              "A heavy oak lamp",
+              "A kitchen knife",
+              "A fire poker"
+            ],
+            "answer": "A broken ski pole",
+            "difficulty": 2,
+            "tags": ["quiz:method"]
+          },
+          {
+            "id": "quiz_time",
+            "question": "When did the murder occur?",
+            "options": [
+              "${timeWindow.start}-${timeWindow.end}",
+              "23:00-23:10",
+              "02:00-02:10",
+              "The time is unknown"
+            ],
+            "answer": "${timeWindow.start}-${timeWindow.end}",
+            "difficulty": 1,
+            "tags": ["quiz:timeline"]
+          },
+          {
+            "id": "quiz_emily_conflict",
+            "question": "What conflict did ${suspects.A.name} have with ${victim.name}?",
+            "options": [
+              "He cut her funding",
+              "He mocked her profession",
+              "He stole her manuscript",
+              "She owed him money"
+            ],
+            "answer": "He cut her funding",
+            "difficulty": 1,
+            "tags": ["quiz:background"]
+          },
+          {
+            "id": "quiz_daniel_debt",
+            "question": "Why was ${suspects.B.name} under financial pressure?",
+            "options": [
+              "Medical bills",
+              "Personal debt and contract loss",
+              "He owed ${victim.name} money",
+              "Gambling addiction"
+            ],
+            "answer": "Personal debt and contract loss",
+            "difficulty": 1,
+            "tags": ["quiz:background"]
+          },
+          {
+            "id": "quiz_sophia_conflict",
+            "question": "Why was ${suspects.C.name} angry with ${victim.name}?",
+            "options": [
+              "He accused her of plagiarism",
+              "He stole her stories",
+              "He refused to publish her book",
+              "He mocked her career"
+            ],
+            "answer": "He accused her of plagiarism",
+            "difficulty": 1,
+            "tags": ["quiz:background"]
+          },
+          {
+            "id": "quiz_liam_argument",
+            "question": "What did witnesses hear earlier involving ${suspects.D.name}?",
+            "options": [
+              "He was laughing loudly",
+              "He argued with ${victim.name}",
+              "He was practicing skiing",
+              "He was playing music"
+            ],
+            "answer": "He argued with ${victim.name}",
+            "difficulty": 1,
+            "tags": ["quiz:testimonial"]
+          },
+          {
+            "id": "quiz_blood",
+            "question": "What does the blood pattern indicate?",
+            "options": [
+              "The victim was stabbed",
+              "The victim was struck from behind",
+              "The victim fell accidentally",
+              "There was a struggle"
+            ],
+            "answer": "The victim was struck from behind",
+            "difficulty": 1,
+            "tags": ["quiz:evidence"]
+          },
+          {
+            "id": "quiz_prints",
+            "question": "Why are the ski boot tracks important?",
+            "options": [
+              "They show the victim went skiing",
+              "They link someone to the ski room",
+              "They prove someone left the lodge",
+              "They show a broken window"
+            ],
+            "answer": "They link someone to the ski room",
+            "difficulty": 1,
+            "tags": ["quiz:evidence"]
+          },
+          {
+            "id": "quiz_snow",
+            "question": "Why were there no new footprints in the snow at ${roomEntrance.label}?",
+            "options": [
+              "Someone swept them away",
+              "It snowed too lightly",
+              "No one entered or left the lodge",
+              "The wind erased them"
+            ],
+            "answer": "No one entered or left the lodge",
+            "difficulty": 1,
+            "tags": ["quiz:timeline"]
+          }
+        ],
+        "solution": {
+          "summary": "${suspects.D.name} used a ski pole to strike ${victim.name} during a momentary power dip, fueled by insults and past conflicts.",
+          "details": [
+            "${suspects.D.name} harbored anger after years of humiliation by ${victim.name}.",
+            "He approached ${victim.name} during the blackout between ${timeWindow.start} and ${timeWindow.end}.",
+            "A ski pole was used to strike ${victim.name} from behind, matching the wound shape.",
+            "${suspects.D.name} attempted to burn the broken pole in the fireplace to destroy evidence.",
+            "Boot tracks near ${roomStorage.label} link him directly to the equipment used.",
+            "Only the exclusive evidence—the damaged ski pole—confirms ${suspects.D.name} as the killer."
+          ],
+          "tags": ["solution:standard", "culprit:D"]
+        }
+      },
+      "metadata": {
+        "blurb": "A snowstorm traps four guests in a remote mountain lodge. When Henry Caldwell is found dead by the fireplace, every secret becomes a clue—and every motive, a weapon."
+      }
+    }
+  ]
+}
